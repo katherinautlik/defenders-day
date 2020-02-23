@@ -2,9 +2,9 @@
   <div class="hello">
     <h1>Here you can find the gift.. probably :)</h1>
 
-    <section v-if="decipherData">
+    <section v-if="decryptedData">
       <h2>Great success!</h2>
-      <object type="application/pdf" :data="getData()" width="500px" height="700px" />
+      <object type="application/pdf" :data="getPdfObject()" width="500px" height="700px" />
     </section>
     <section v-else>
       <h3>First, you need to decrypt it, have a look at the code :*</h3>
@@ -20,16 +20,16 @@
     name: 'Gift',
     data: function () {
       return {
-        decipherData: '',
+        decryptedData: '',
       }
     },
     methods: {
-      getData: function () {
-        return `data:application/pdf;base64, ${this.decipherData}`;
+      getPdfObject: function () {
+        return `data:application/pdf;base64, ${this.decryptedData}`;
       }
     },
     created() {
-      this.decipherData = decrypt();
+      this.decryptedData = decrypt();
     }
   }
 
