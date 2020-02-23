@@ -45,6 +45,7 @@
    * @returns {String}
    */
   function decrypt() {
+    // TODO: Define secretKey variable, check jsdoc for more details
     const secretKey = '';
     const simpleCrypto = new SimpleCrypto(secretKey);
 
